@@ -5,11 +5,16 @@ namespace Brandy.NHibernate
 
     public abstract class NHibernateRepositoryBase<TEntity> : IRepository<TEntity>
     {
-        public ISessionProvider SessionProvider { get; set; }
+        private readonly ISessionProvider sessionProvider;
+
+        protected NHibernateRepositoryBase(ISessionProvider sessionProvider)
+        {
+            this.sessionProvider = sessionProvider;
+        }
 
         protected ISession Session
         {
-            get { return SessionProvider.CurrentSession; }
+            get { return sessionProvider.CurrentSession; }
         }
 
         #region IRepository<TEntity> Members

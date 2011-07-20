@@ -2,7 +2,7 @@
 {
     using System.Linq;
 
-    public interface INHibernateLinqProvider
+    public interface ILinqProvider
     {
         IQueryable<T> Query<T>();
     }

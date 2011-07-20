@@ -3,7 +3,7 @@ namespace Brandy.NHibernate
     using System.Linq;
     using global::NHibernate.Linq;
 
-    public sealed class NHibernateLinqProvider : INHibernateLinqProvider
+    public sealed class NHibernateLinqProvider : ILinqProvider
     {
         private readonly ISessionProvider sessionProvider;
 

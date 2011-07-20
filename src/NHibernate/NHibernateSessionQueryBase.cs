@@ -6,11 +6,16 @@ namespace Brandy.Core
     public abstract class NHibernateSessionQueryBase<TResult, TCriterion> : IQuery<TResult, TCriterion>
         where TCriterion : ICriterion
     {
-        public ISessionProvider SessionProvider { get; set; }
+        private readonly ISessionProvider sessionProvider;
+
+        public NHibernateSessionQueryBase(ISessionProvider sessionProvider)
+        {
+            this.sessionProvider = sessionProvider;
+        }
 
         protected ISession Session
         {
-            get { return SessionProvider.CurrentSession; }
+            get { return sessionProvider.CurrentSession; }
         }
 
         public abstract TResult Ask(TCriterion criterion);
