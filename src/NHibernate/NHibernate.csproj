@@ -63,7 +63,6 @@
     <Compile Include="INHibernateConfigurator.cs" />
     <Compile Include="INHibernateLinqProvider.cs" />
     <Compile Include="ISessionProvider.cs" />
-    <Compile Include="NHibernateConfigurator.cs" />
     <Compile Include="NHibernateLinqProvider.cs" />
     <Compile Include="NHibernateLinqQueryBase.cs" />
     <Compile Include="NHibernateRepository.cs" />
