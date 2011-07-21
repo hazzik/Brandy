@@ -1,1 +1,1 @@
-web application framework for first start and rapid development
+web application framework for fast start and rapid development
