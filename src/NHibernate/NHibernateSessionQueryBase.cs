@@ -1,6 +1,6 @@
-namespace Brandy.Core
+namespace Brandy.NHibernate
 {
-    using NHibernate;
+    using Core;
     using global::NHibernate;
 
     public abstract class NHibernateSessionQueryBase<TResult, TCriterion> : IQuery<TResult, TCriterion>

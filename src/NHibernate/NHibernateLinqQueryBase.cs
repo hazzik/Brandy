@@ -1,7 +1,7 @@
-namespace Brandy.Core
+namespace Brandy.NHibernate
 {
     using System.Linq;
-    using NHibernate;
+    using Core;
 
     public abstract class NHibernateLinqQueryBase<TResult, TCriterion> : IQuery<TResult, TCriterion>
         where TCriterion : ICriterion
