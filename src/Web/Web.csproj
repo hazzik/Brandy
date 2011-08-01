@@ -46,6 +46,7 @@
     <Compile Include="Forms\IForm.cs" />
     <Compile Include="Forms\IFormHandler.cs" />
     <Compile Include="Forms\IFormHandlerFactory.cs" />
+    <Compile Include="RequiredScriptHtmlHelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
