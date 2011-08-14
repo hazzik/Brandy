@@ -6,11 +6,11 @@ for your own use before compile tests in VisualStudio.
 -->
 <hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
 	<session-factory name="NHibernate.Test">
-		<property name="connection.driver_class">NHibernate.Driver.NpgsqlDriver</property>
+		<property name="connection.driver_class">NHibernate.Driver.SQLite20Driver</property>
 		<property name="connection.connection_string">
-			Server=localhost;initial catalog=nhibernate;User ID=nhibernate;Password=nhibernate;
+			Data Source=nhibernate.db;Version=3
 		</property>
-		<property name="dialect">NHibernate.Dialect.PostgreSQLDialect</property>
-		<property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>
+		<property name="dialect">NHibernate.Dialect.SQLiteDialect</property>
+		<property name="query.substitutions">true=1;false=0</property>
 	</session-factory>
 </hibernate-configuration>
