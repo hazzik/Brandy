@@ -44,10 +44,12 @@
         public static IHtmlString OutputRequiredScripts(this HtmlHelper html)
         {
             var sb = new StringBuilder();
-            foreach (string script in RequiredScripts(html))
+            var requiredScripts = RequiredScripts(html);
+            foreach (string script in requiredScripts)
             {
                 sb.AppendFormat(@"<script src=""{0}"" type=""text/javascript""></script>", script);
             }
+            requiredScripts.Clear();
             return MvcHtmlString.Create(sb.ToString());
         }
 
