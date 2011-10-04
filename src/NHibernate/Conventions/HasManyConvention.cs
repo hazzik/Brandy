@@ -12,12 +12,17 @@ namespace Brandy.NHibernate.Conventions
             instance.Inverse();
             instance.AsSet();
             instance.BatchSize(25);
+            instance.Not.KeyNullable();
+            if (instance.OtherSide == null)
+                instance.Not.Inverse();
+            else
+                instance.Inverse();
         }
 
         public void Apply(IManyToManyCollectionInstance instance)
         {
             instance.Access.ReadOnlyPropertyThroughCamelCaseField();
-            instance.Cascade.AllDeleteOrphan();
+            instance.Cascade.SaveUpdate();
             instance.AsSet();
             instance.BatchSize(25);
         }
