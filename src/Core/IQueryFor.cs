@@ -1,6 +1,6 @@
 namespace Brandy.Core
 {
-    public interface IQueryBuilderWithPart<out T>
+    public interface IQueryFor<out T>
     {
         T With<TCriterion>(TCriterion criterion) where TCriterion : ICriterion;
     }

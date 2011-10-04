@@ -1,10 +1,10 @@
 namespace Brandy.Core
 {
-    public class QueryBuilderWithPart<T> : IQueryBuilderWithPart<T>
+    public class QueryFor<T> : IQueryFor<T>
     {
         private readonly IQueryFactory queryFactory;
 
-        public QueryBuilderWithPart(IQueryFactory queryFactory)
+        public QueryFor(IQueryFactory queryFactory)
         {
             this.queryFactory = queryFactory;
         }

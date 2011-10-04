@@ -47,11 +47,11 @@
     <Compile Include="IEntity.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryBuilder.cs" />
-    <Compile Include="IQueryBuilderWithPart.cs" />
+    <Compile Include="IQueryFor.cs" />
     <Compile Include="IQueryFactory.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryBuilderWithPart.cs" />
+    <Compile Include="QueryFor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
