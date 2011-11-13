@@ -3,19 +3,15 @@ using FluentNHibernate.Conventions.Instances;
 
 namespace Brandy.NHibernate.Conventions
 {
-    public class PrimaryKeyConvention : IIdConvention
+    public class PrimaryKeyNameConvention : IIdConvention
 	{
-		#region IIdConvention Members
-
-		public void Apply(IIdentityInstance instance)
+        public void Apply(IIdentityInstance instance)
 		{
 			string sequenceName = NameConventions.GetSequenceName(instance.EntityType);
 			string columnName = NameConventions.GetPrimaryKeyColumnName(instance.EntityType);
 
 			instance.Column(columnName);
-			instance.GeneratedBy.Native(paramBuilder => paramBuilder.AddParam("sequence", sequenceName));
+		    instance.GeneratedBy.HiLo("100");
 		}
-
-		#endregion
 	}
 }

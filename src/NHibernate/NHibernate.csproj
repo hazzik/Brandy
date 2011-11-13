@@ -59,7 +59,7 @@
     <Compile Include="Conventions\ForeignKeyColumnNameConvention.cs" />
     <Compile Include="Conventions\ForeignKeyConstraintNameConvention.cs" />
     <Compile Include="Conventions\NameConventions.cs" />
-    <Compile Include="Conventions\PrimaryKeyConvention.cs" />
+    <Compile Include="Conventions\PrimaryKeyNameConvention.cs" />
     <Compile Include="Conventions\EntityConvention.cs" />
     <Compile Include="Conventions\HasManyConvention.cs" />
     <Compile Include="INHibernateConfigurator.cs" />
