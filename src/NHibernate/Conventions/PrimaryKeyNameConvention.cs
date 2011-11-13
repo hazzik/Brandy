@@ -7,11 +7,9 @@ namespace Brandy.NHibernate.Conventions
 	{
         public void Apply(IIdentityInstance instance)
 		{
-			string sequenceName = NameConventions.GetSequenceName(instance.EntityType);
 			string columnName = NameConventions.GetPrimaryKeyColumnName(instance.EntityType);
 
 			instance.Column(columnName);
-		    instance.GeneratedBy.HiLo("100");
 		}
 	}
 }
