@@ -7,7 +7,7 @@ namespace Brandy.NHibernate.Conventions
 	{
         public void Apply(IClassInstance instance)
 		{
-			string tableName = NameConventions.GetTableName(instance.EntityType);
+			string tableName = "`" + NameConventions.GetTableName(instance.EntityType) + "`";
 
 			instance.Table(tableName);
 		    instance.BatchSize(25);
@@ -15,7 +15,7 @@ namespace Brandy.NHibernate.Conventions
 
         public void Apply(IJoinedSubclassInstance instance)
 		{
-			string tableName = NameConventions.GetTableName(instance.EntityType);
+			string tableName = "`" + NameConventions.GetTableName(instance.EntityType) + "`";
 
 			instance.Table(tableName);
             instance.BatchSize(25);
