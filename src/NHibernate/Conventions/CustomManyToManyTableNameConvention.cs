@@ -18,7 +18,7 @@ namespace Brandy.NHibernate.Conventions
 
 		private static string GetTableName(Type entityType, Type otherSideType)
 		{
-			return "`" + NameConventions.GetTableName(entityType) + "_" + NameConventions.GetTableName(otherSideType) + "`";
+		    return NameConventions.Quote(NameConventions.JoinParts(entityType.Name, otherSideType.Name));
 		}
 	}
 }

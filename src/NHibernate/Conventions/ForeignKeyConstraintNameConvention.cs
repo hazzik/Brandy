@@ -13,11 +13,22 @@ namespace Brandy.NHibernate.Conventions
 
         public void Apply(IManyToManyCollectionInstance instance)
         {
-            var childConstraint = NameConventions.GetForeignKeyConstraintName(instance.TableName, instance.ChildType.Name);
-            instance.Relationship.ForeignKey(childConstraint);
+            if (instance.OtherSide == null)
+            {
+                var childConstraint = NameConventions.GetManyToManyForeignKeyConstraintName(instance.EntityType.Name, instance.ChildType.Name, instance.ChildType.Name);
+                instance.Relationship.ForeignKey(childConstraint);
 
-            var childConstraint2 = NameConventions.GetForeignKeyConstraintName(instance.TableName, instance.EntityType.Name);
-            instance.Key.ForeignKey(childConstraint2);
+                var childConstraint2 = NameConventions.GetManyToManyForeignKeyConstraintName(instance.EntityType.Name, instance.ChildType.Name, instance.EntityType.Name);
+                instance.Key.ForeignKey(childConstraint2);
+            }
+            else
+            {
+                var childConstraint = NameConventions.GetManyToManyForeignKeyConstraintName(instance.OtherSide.EntityType.Name, instance.EntityType.Name, instance.ChildType.Name);
+                instance.Relationship.ForeignKey(childConstraint);
+
+                var childConstraint2 = NameConventions.GetManyToManyForeignKeyConstraintName(instance.OtherSide.EntityType.Name, instance.EntityType.Name, instance.EntityType.Name);
+                instance.Key.ForeignKey(childConstraint2);
+            }
         }
 
         public void Apply(IJoinInstance instance)
