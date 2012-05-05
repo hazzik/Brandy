@@ -1,0 +1,24 @@
+﻿@using System.Web.Mvc.Html
+@model Brandy.Security.Web.Forms.SignIn
+           
+@{
+    ViewBag.Title = "Вход в личный кабинет";
+}
+
+<h2>Вход в личный кабинет</h2>
+<p>
+    Пожалуйста, введите ваше имя пользователя и пароль или @Html.ActionLink("зарегистрируйтесь", "SignUp").
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Попытка входа неудачна.")
+    <div>
+        <fieldset>
+            @Html.EditorForModel()
+            <p>
+                <input type="submit" value="Войти" />
+            </p>
+        </fieldset>
+    </div>
+}

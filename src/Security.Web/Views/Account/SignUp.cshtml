@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@model Brandy.Security.Web.Forms.SignUp
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<h2>Давайте познакомимся</h2>
+<p>
+    Заполните форму, чтобы создать свой личный кабинет. 
+</p>
+<p>
+    Длина пароля должна быть не меньше @ViewBag.PasswordLength символов.
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Попытка создания личного кабинета неудачна.")
+    <div>
+        <fieldset>
+            @Html.EditorForModel()
+            <p>
+                <input type="submit" value="Зарегистрироваться" />
+            </p>
+        </fieldset>
+    </div>
+}
