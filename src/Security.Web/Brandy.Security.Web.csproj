@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Brandy.Core">
-      <HintPath>..\..\lib\Brandy\Brandy.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Brandy.Web">
-      <HintPath>..\..\lib\Brandy\Brandy.Web.dll</HintPath>
-    </Reference>
     <Reference Include="MvcExtensions">
       <HintPath>..\..\packages\MvcExtensions.2.5.0-rc8005\lib\net40\MvcExtensions.dll</HintPath>
     </Reference>
@@ -81,9 +75,25 @@
     <Compile Include="Services\Impl\RoleType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Brandy.Core.csproj">
+      <Project>{EC166CCA-E2DE-49E0-9CCC-EBE6AAE548A7}</Project>
+      <Name>Brandy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate\Brandy.NHibernate.csproj">
+      <Project>{309CA85F-743C-4ECF-B21D-7C497556EE9E}</Project>
+      <Name>Brandy.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security.NHibernate\Brandy.Security.NHibernate.csproj">
+      <Project>{83665861-E89B-4024-AD41-CC196D95128D}</Project>
+      <Name>Brandy.Security.NHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Security\Brandy.Security.csproj">
       <Project>{AF736CA9-1DE4-41AF-95EE-91893814A4BC}</Project>
       <Name>Brandy.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Brandy.Web.csproj">
+      <Project>{A4ADC02B-2C38-4065-907E-E1065A946F66}</Project>
+      <Name>Brandy.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

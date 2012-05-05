@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AF736CA9-1DE4-41AF-95EE-91893814A4BC}</ProjectGuid>
+    <ProjectGuid>{309CA85F-743C-4ECF-B21D-7C497556EE9E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Brandy.Security</RootNamespace>
-    <AssemblyName>Brandy.Security</AssemblyName>
+    <RootNamespace>Brandy.NHibernate</RootNamespace>
+    <AssemblyName>Brandy.NHibernate</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\packages\FluentNHibernate.1.3.0.727\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\packages\NHibernate.3.3.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,12 +54,27 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ByteArrayExtensions.cs" />
-    <Compile Include="Criteria\FindByLogin.cs" />
-    <Compile Include="Criteria\FindByLoginOrEmail.cs" />
-    <Compile Include="Entities\Password.cs" />
+    <Compile Include="Conventions\ColumnNameUpperCaseConvention.cs" />
+    <Compile Include="Conventions\CustomManyToManyTableNameConvention.cs" />
+    <Compile Include="Conventions\ForeignKeyColumnNameConvention.cs" />
+    <Compile Include="Conventions\ForeignKeyConstraintNameConvention.cs" />
+    <Compile Include="Conventions\NameConventions.cs" />
+    <Compile Include="Conventions\PrimaryKeyNameConvention.cs" />
+    <Compile Include="Conventions\EntityConvention.cs" />
+    <Compile Include="Conventions\HasManyConvention.cs" />
+    <Compile Include="INHibernateConfigurator.cs" />
+    <Compile Include="ILinqProvider.cs" />
+    <Compile Include="ISessionProvider.cs" />
+    <Compile Include="NHibernateLinqProvider.cs" />
+    <Compile Include="NHibernateLinqQueryBase.cs" />
+    <Compile Include="NHibernateRepository.cs" />
+    <Compile Include="NHibernateRepositoryBase.cs" />
+    <Compile Include="NHibernateSessionQueryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="DefaultSessionProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Brandy.Core.csproj">
@@ -57,6 +83,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

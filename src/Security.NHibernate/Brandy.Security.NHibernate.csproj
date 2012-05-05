@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Brandy.Core">
-      <HintPath>..\..\lib\Brandy\Brandy.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Brandy.NHibernate">
-      <HintPath>..\..\lib\Brandy\Brandy.NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="FluentNHibernate, Version=1.3.0.727, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\FluentNHibernate.1.3.0.727\lib\FluentNHibernate.dll</HintPath>
@@ -67,6 +61,14 @@
     <Compile Include="Queries\FindByLoginQuery.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Brandy.Core.csproj">
+      <Project>{EC166CCA-E2DE-49E0-9CCC-EBE6AAE548A7}</Project>
+      <Name>Brandy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate\Brandy.NHibernate.csproj">
+      <Project>{309CA85F-743C-4ECF-B21D-7C497556EE9E}</Project>
+      <Name>Brandy.NHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Security\Brandy.Security.csproj">
       <Project>{AF736CA9-1DE4-41AF-95EE-91893814A4BC}</Project>
       <Name>Brandy.Security</Name>

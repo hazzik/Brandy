@@ -7,18 +7,6 @@
     <artifactPath>$(MSBuildProjectDirectory)\artifacts</artifactPath>
 
     <solution>$(MSBuildProjectDirectory)\Brandy.sln</solution>
-
-    <corePath>$(MSBuildProjectDirectory)\src\Core</corePath>
-    <coreFile>Core</coreFile>
-    <core>$(corePath)\$(coreFile).csproj</core>
-
-    <nhibernatePath>$(MSBuildProjectDirectory)\src\NHibernate</nhibernatePath>
-    <nhibernateFile>NHibernate</nhibernateFile>
-    <nhibernate>$(nhibernatePath)\$(nhibernateFile).csproj</nhibernate>
-
-    <webPath>$(MSBuildProjectDirectory)\src\Web</webPath>
-    <webFile>Web</webFile>
-    <web>$(webPath)\$(webFile).csproj</web>
   </PropertyGroup>
 
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
@@ -30,27 +18,20 @@
   </Target>
 
   <Target Name="Clean">
-    <MSBuild Projects="$(core)" Targets="Clean" Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(nhibernate)" Targets="Clean" Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(web)" Targets="Clean" Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(solution)" Targets="Clean" Properties="Configuration=$(Configuration)"/>
   </Target>
 
   <Target Name="Build">
-    <MSBuild Projects="$(core)" Targets="Build" Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(nhibernate)" Targets="Build" Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(web)" Targets="Build" Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(solution)" Targets="Build" Properties="Configuration=$(Configuration)"/>
   </Target>
 
   <Target Name="Deploy">
-    <CreateItem Include="$(corePath)\bin\$(Configuration)\Brandy.$(coreFile).*">
-      <Output TaskParameter="Include" ItemName="zipFiles"/>
-    </CreateItem>
-    <CreateItem Include="$(nhibernatePath)\bin\$(Configuration)\Brandy.$(nhibernateFile).*">
-      <Output TaskParameter="Include" ItemName="zipFiles"/>
-    </CreateItem>
-    <CreateItem Include="$(webPath)\bin\$(Configuration)\Brandy.$(webFile).*">
-      <Output TaskParameter="Include" ItemName="zipFiles"/>
-    </CreateItem>
-    <Zip Files="@(zipFiles)" ZipFileName="$(artifactPath)\Brandy.zip" Flatten="true" ZipLevel="9"/>
+    <ItemGroup>
+      <ProjectFiles Include="Core; NHibernate; Web; Security; Security.NHibernate; Security.Web; Security.Windsor" />
+    </ItemGroup>
+    <ItemGroup>
+      <ZipFiles Include="$(MSBuildProjectDirectory)\src\%(ProjectFiles.Identity)\bin\$(Configuration)\Brandy.%(ProjectFiles.Identity).*" />
+    </ItemGroup>
+    <Zip Files="@(ZipFiles)" ZipFileName="$(artifactPath)\Brandy.zip" Flatten="true" ZipLevel="9"/>
   </Target>
 </Project>
