@@ -43,8 +43,10 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="DefaultMailSender.cs" />
     <Compile Include="ICriterion.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="IMailSender.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryBuilder.cs" />
     <Compile Include="IQueryFor.cs" />
