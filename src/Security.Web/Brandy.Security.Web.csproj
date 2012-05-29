@@ -61,6 +61,8 @@
     <Compile Include="Forms\Metadata\ChangePasswordMetadata.cs" />
     <Compile Include="Forms\Metadata\SignInMetadata.cs" />
     <Compile Include="Forms\Metadata\SignUpMetadata.cs" />
+    <Compile Include="Forms\RestorePasswordRequest.cs" />
+    <Compile Include="Forms\Handlers\RestorePasswordRequestHandler.cs" />
     <Compile Include="Forms\SignIn.cs" />
     <Compile Include="Forms\SignOut.cs" />
     <Compile Include="Forms\SignUp.cs" />

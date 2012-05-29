@@ -22,8 +22,6 @@
             this.query = query;
         }
 
-        #region IFormHandler<SignUp> Members
-
         public virtual void Handle(SignUp command)
         {
             var part = query.For<User>();
@@ -40,7 +38,5 @@
 
             service.SignIn(user, false);
         }
-
-        #endregion
     }
 }

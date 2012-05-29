@@ -4,11 +4,15 @@ namespace Brandy.Core
 
     public class DefaultMailSender : IMailSender
     {
-        public void SendMail(string @from, string to, string subject, string body)
+        public void SendMail(string to, string subject, string body)
         {
             using (var client = new SmtpClient())
+            using (var message = new MailMessage())
             {
-                client.Send(from, to, subject, body);
+                message.To.Add(to);
+                message.Subject = subject;
+                message.Body = body;
+                client.Send(message);
             }
         }
     }
