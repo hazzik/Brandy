@@ -58,9 +58,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Brandy.Core.csproj">
+      <Project>{EC166CCA-E2DE-49E0-9CCC-EBE6AAE548A7}</Project>
+      <Name>Brandy.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Security.Web\Brandy.Security.Web.csproj">
       <Project>{1D1EC41E-9B84-4033-8CE4-2155BB7ED438}</Project>
       <Name>Brandy.Security.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Brandy.Web.csproj">
+      <Project>{A4ADC02B-2C38-4065-907E-E1065A946F66}</Project>
+      <Name>Brandy.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
