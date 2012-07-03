@@ -19,7 +19,7 @@ namespace Brandy.Web.Forms
 		                                     ActionResult successResult,
 		                                     ActionResult failResult) where TForm : IForm
 		{
-			Uri urlReferrer = Request.UrlReferrer;
+			var urlReferrer = Request.UrlReferrer;
 			return Handle(form, () => successResult, () => failResult);
 		}
 
