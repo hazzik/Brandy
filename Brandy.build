@@ -22,7 +22,7 @@
   </Target>
 
   <Target Name="Build">
-    <MSBuild Projects="$(solution)" Targets="Build" Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(solution)" Targets="Build" Properties="Configuration=$(Configuration);BuildPackage=true;PackageOutputDir=$(artifactPath)"/>
   </Target>
 
   <Target Name="Deploy">
@@ -30,7 +30,7 @@
       <ProjectFiles Include="Core; NHibernate; Web; Security; Security.NHibernate; Security.Web; Security.Windsor" />
     </ItemGroup>
     <ItemGroup>
-      <ZipFiles Include="$(MSBuildProjectDirectory)\src\%(ProjectFiles.Identity)\bin\$(Configuration)\Brandy.%(ProjectFiles.Identity).*" />
+      <ZipFiles Include="$(MSBuildProjectDirectory)\src\%(ProjectFiles.Identity)\bin\$(Configuration)\Brandy.%(ProjectFiles.Identity).*" Exclude="*.nupkg"/>
     </ItemGroup>
     <Zip Files="@(ZipFiles)" ZipFileName="$(artifactPath)\Brandy.zip" Flatten="true" ZipLevel="9"/>
   </Target>

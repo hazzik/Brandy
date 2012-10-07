@@ -41,10 +41,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -81,14 +78,6 @@
       <Project>{EC166CCA-E2DE-49E0-9CCC-EBE6AAE548A7}</Project>
       <Name>Brandy.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NHibernate\Brandy.NHibernate.csproj">
-      <Project>{309CA85F-743C-4ECF-B21D-7C497556EE9E}</Project>
-      <Name>Brandy.NHibernate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Security.NHibernate\Brandy.Security.NHibernate.csproj">
-      <Project>{83665861-E89B-4024-AD41-CC196D95128D}</Project>
-      <Name>Brandy.Security.NHibernate</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Security\Brandy.Security.csproj">
       <Project>{AF736CA9-1DE4-41AF-95EE-91893814A4BC}</Project>
       <Name>Brandy.Security</Name>
@@ -105,6 +94,7 @@
     <EmbeddedResource Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Brandy.Security.Web.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

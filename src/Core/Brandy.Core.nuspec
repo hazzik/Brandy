@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <projectUrl>https://github.com/BrandyFx/Brandy</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/3bd71f08e27e6b09bd4bfb0017c0497a?s=420</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright BrandyFx 2012</copyright>
+    <tags></tags>
+  </metadata>
+</package>

@@ -76,6 +76,7 @@
     <Compile Include="DefaultSessionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Brandy.NHibernate.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
