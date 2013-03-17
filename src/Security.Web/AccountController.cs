@@ -10,6 +10,8 @@
     {
         public ActionResult SignIn()
         {
+            if (ControllerContext.IsChildAction)
+                return PartialView();
             return View();
         }
 
@@ -28,6 +30,8 @@
         public ActionResult SignUp()
         {
             ViewBag.PasswordLength = 6;
+            if (ControllerContext.IsChildAction)
+                return PartialView();
             return View();
         }
 
@@ -41,6 +45,8 @@
         public ActionResult ChangePassword()
         {
             ViewBag.PasswordLength = 6;
+            if (ControllerContext.IsChildAction)
+                return PartialView();
             return View();
         }
 
@@ -54,6 +60,8 @@
         [BrandyAuthorize]
         public ActionResult ChangePasswordSuccess()
         {
+            if (ControllerContext.IsChildAction)
+                return PartialView();
             return View();
         }
 
@@ -70,9 +78,7 @@
         private string GetReturnUrl(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
-            {
                 return returnUrl;
-            }
 
             return Url.Action("Index", "Home");
         }
