@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="EnityFrameworkLinqQueryBase.cs" />
     <Compile Include="EntityFrameworkRepository.cs" />
     <Compile Include="EntityFrameworkRepositoryBase.cs" />
