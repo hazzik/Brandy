@@ -20,7 +20,6 @@ namespace Brandy.Web.Forms
 											 ActionResult successResult,
 											 ActionResult failResult) where TForm : IForm
 		{
-			var urlReferrer = Request.UrlReferrer;
 			return Handle(form, () => successResult, () => failResult);
 		}
 
@@ -68,11 +67,12 @@ namespace Brandy.Web.Forms
 				var provider = new ValueProviderCollection(providers);
 				ValueProvider = provider;
 				//dynamic trick because TryUpdateModel is generec and does not want to update models of type object:(
-				dynamic model = ViewData.Model;
-				TryUpdateModel(model, provider);
+				if (ViewData.Model != null)
+				{
+					dynamic model = ViewData.Model;
+					TryUpdateModel(model, provider);
+				}
 			}
-
-			base.OnActionExecuted(filterContext);
 		}
 	}
 }

@@ -1,7 +1,6 @@
 ﻿namespace Brandy.Security.Web
 {
     using System.Web.Mvc;
-
     using Brandy.Web.Forms;
 
     using Forms;
@@ -18,13 +17,13 @@
         [HttpPost]
         public ActionResult SignIn(SignIn command, string returnUrl)
         {
-            return Handle(command, GetRedirectResult(returnUrl));
+            return Handle(command, () => GetRedirectResult(returnUrl), () => RedirectToAction("SignIn", "Account"));
         }
 
         [BrandyAuthorize]
         public ActionResult SignOut(SignOut command, string returnUrl)
         {
-            return Handle(command, GetRedirectResult(returnUrl));
+            return Handle(command, () => GetRedirectResult(returnUrl), () => RedirectToAction("SignOut", "Account"));
         }
 
         public ActionResult SignUp()
@@ -38,7 +37,7 @@
         [HttpPost]
         public ActionResult SignUp(SignUp command, string returnUrl)
         {
-            return Handle(command, GetRedirectResult(returnUrl));
+            return Handle(command, () => GetRedirectResult(returnUrl), () => RedirectToAction("SignUp", "Account"));
         }
 
         [BrandyAuthorize]
@@ -54,7 +53,7 @@
         [HttpPost]
         public ActionResult ChangePassword(ChangePassword command)
         {
-            return Handle(command, RedirectToAction("ChangePasswordSuccess"));
+            return Handle(command, () => RedirectToAction("ChangePasswordSuccess"), () => RedirectToAction("SignUp", "Account"));
         }
 
         [BrandyAuthorize]
@@ -71,7 +70,7 @@
 
             if (Request.IsAjaxRequest())
                 return JavaScript(string.Format("(function () {{ window.location = '{0}'; }})();", returnUrl));
-            
+
             return Redirect(returnUrl);
         }
 
@@ -81,6 +80,11 @@
                 return returnUrl;
 
             return Url.Action("Index", "Home");
+        }
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            //we dont want to restore action
         }
     }
 }
