@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy.Core", "src\Core\Brandy.Core.csproj", "{EC166CCA-E2DE-49E0-9CCC-EBE6AAE548A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy.NHibernate", "src\NHibernate\Brandy.NHibernate.csproj", "{309CA85F-743C-4ECF-B21D-7C497556EE9E}"
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy.Security.Windsor", "src\Security.Windsor\Brandy.Security.Windsor.csproj", "{091FC1CF-FAF8-4229-96D8-D762E948BE15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy.Security.Web", "src\Security.Web\Brandy.Security.Web.csproj", "{1D1EC41E-9B84-4033-8CE4-2155BB7ED438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy.EntityFramework", "src\Brandy.EntityFramework\Brandy.EntityFramework.csproj", "{79208CEF-A9EA-435C-91AC-55EBA071E60F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{1D1EC41E-9B84-4033-8CE4-2155BB7ED438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D1EC41E-9B84-4033-8CE4-2155BB7ED438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D1EC41E-9B84-4033-8CE4-2155BB7ED438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79208CEF-A9EA-435C-91AC-55EBA071E60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79208CEF-A9EA-435C-91AC-55EBA071E60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79208CEF-A9EA-435C-91AC-55EBA071E60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79208CEF-A9EA-435C-91AC-55EBA071E60F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
